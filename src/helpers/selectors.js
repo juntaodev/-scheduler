@@ -1,5 +1,5 @@
 export function getAppointmentsForDay(state, day) {
-console.log("state", state, day)
+
   const filteredDays = state.days.filter(dayName => dayName.name === day);
 
   if (!filteredDays.length) {
@@ -24,4 +24,16 @@ export function getInterview(state, interview) {
 
   return {...interview, interviewer}
 
+}
+
+export function getInterviewersForDay(state, day) {
+  
+  const filteredDays = state.days.filter(dayName => dayName.name === day);
+
+  if (!filteredDays.length) {
+    return [];
+  }
+
+
+  return filteredDays[0].interviewers.map(id => state.interviewers[id]);
 }
