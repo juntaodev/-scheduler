@@ -10,3 +10,18 @@ console.log("state", state, day)
 
   return output
 }
+
+export function getInterview(state, interview) {
+
+  const { interviewers } = state;
+
+  if (!interview) {
+    return null;
+  }
+
+  const interviewerId = interview.interviewer;
+  const interviewer = interviewers[interviewerId];
+
+  return {...interview, interviewer}
+
+}
