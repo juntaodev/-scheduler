@@ -42,8 +42,7 @@ export default function Appointment(props) {
       student: "",
       interviewer: null
     }
-    transition(CONFIRM);
-    transition(REMOVING);
+    transition(REMOVING, true);
     props.cancelInterview(props.id, interview)
       .then(res => transition(EMPTY))
       .catch(()=> transition(ERROR_DELETE, true))
